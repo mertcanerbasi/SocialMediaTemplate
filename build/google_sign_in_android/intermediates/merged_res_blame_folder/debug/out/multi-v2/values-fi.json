@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mertcan/Documents/GitHub/socialmediaapp/build/google_sign_in_android/intermediates/res/merged/debug/values-fi/values-fi.xml",
+            "outputFile": "/Users/mertcan/Documents/GitHub/SocialMediaTemplate/build/google_sign_in_android/intermediates/res/merged/debug/values-fi/values-fi.xml",
             "map": [
                 {
                     "source": "/Users/mertcan/.gradle/caches/transforms-2/files-2.1/14b93615368c2249f1830e26ca064ab5/core-1.6.0/res/values-fi/values-fi.xml",
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "outputFile": "/Users/mertcan/Documents/GitHub/socialmediaapp/build/google_sign_in_android/intermediates/incremental/mergeDebugResources/merged.dir/values-fi/values-fi.xml",
+            "outputFile": "/Users/mertcan/Documents/GitHub/SocialMediaTemplate/build/google_sign_in_android/intermediates/incremental/mergeDebugResources/merged.dir/values-fi/values-fi.xml",
             "map": [
                 {
                     "source": "/Users/mertcan/.gradle/caches/transforms-2/files-2.1/14b93615368c2249f1830e26ca064ab5/core-1.6.0/res/values-fi/values-fi.xml",

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mertcan/Documents/GitHub/socialmediaapp/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-hr/values-hr.xml",
+            "outputFile": "/Users/mertcan/Documents/GitHub/SocialMediaTemplate/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-hr/values-hr.xml",
             "map": [
                 {
                     "source": "/Users/mertcan/.gradle/caches/transforms-2/files-2.1/1c0769389455a4c14b7a50bc2530cb4a/jetified-play-services-base-18.0.1/res/values-hr/values.xml",

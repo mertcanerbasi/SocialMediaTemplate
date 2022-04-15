@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mertcan/Documents/GitHub/socialmediaapp/build/google_sign_in_android/intermediates/incremental/mergeDebugResources/merged.dir/values-or/values-or.xml",
+            "outputFile": "/Users/mertcan/Documents/GitHub/SocialMediaTemplate/build/google_sign_in_android/intermediates/incremental/mergeDebugResources/merged.dir/values-or/values-or.xml",
             "map": [
                 {
                     "source": "/Users/mertcan/.gradle/caches/transforms-2/files-2.1/4a1e8147c3db656939cfc830651ce63e/jetified-play-services-basement-18.0.0/res/values-or/values.xml",
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "outputFile": "/Users/mertcan/Documents/GitHub/socialmediaapp/build/google_sign_in_android/intermediates/res/merged/debug/values-or/values-or.xml",
+            "outputFile": "/Users/mertcan/Documents/GitHub/SocialMediaTemplate/build/google_sign_in_android/intermediates/res/merged/debug/values-or/values-or.xml",
             "map": [
                 {
                     "source": "/Users/mertcan/.gradle/caches/transforms-2/files-2.1/4a1e8147c3db656939cfc830651ce63e/jetified-play-services-basement-18.0.0/res/values-or/values.xml",

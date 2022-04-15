@@ -20,7 +20,6 @@ class _HomepageState extends State<Homepage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _pageController = PageController();
   }
@@ -30,6 +29,11 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       body: PageView(
         controller: _pageController,
+        onPageChanged: (value) {
+          setState(() {
+            _activePage = value;
+          });
+        },
         children: const [
           FlowPage(),
           DiscoverPage(),
@@ -51,7 +55,6 @@ class _HomepageState extends State<Homepage> {
         ],
         onTap: (value) {
           setState(() {
-            _activePage = value;
             _pageController?.jumpToPage(_activePage);
           });
         },

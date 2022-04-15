@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mertcan/Documents/GitHub/socialmediaapp/build/google_sign_in_android/intermediates/res/merged/debug/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "/Users/mertcan/Documents/GitHub/SocialMediaTemplate/build/google_sign_in_android/intermediates/res/merged/debug/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "/Users/mertcan/.gradle/caches/transforms-2/files-2.1/850ef13ec2cd7a7ea527ff79a705c18a/jetified-play-services-auth-20.0.1/res/values-watch-v20/values.xml",
@@ -23,7 +23,7 @@
             ]
         },
         {
-            "outputFile": "/Users/mertcan/Documents/GitHub/socialmediaapp/build/google_sign_in_android/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "/Users/mertcan/Documents/GitHub/SocialMediaTemplate/build/google_sign_in_android/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "/Users/mertcan/.gradle/caches/transforms-2/files-2.1/850ef13ec2cd7a7ea527ff79a705c18a/jetified-play-services-auth-20.0.1/res/values-watch-v20/values.xml",
