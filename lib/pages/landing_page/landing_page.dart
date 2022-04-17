@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:socialmediaapp/models/users.dart';
 import 'package:socialmediaapp/pages/create_account_page/create_account_page.dart';
+import 'package:socialmediaapp/pages/forgot_page/forgot_page.dart';
 import 'package:socialmediaapp/services/auth.dart';
 import 'package:socialmediaapp/services/firestore_service.dart';
 
@@ -21,9 +22,7 @@ class _LandingPageState extends State<LandingPage> {
   String? email, password;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        key: _scaffoldKey,
-        body: Stack(children: [_PageElements(), _loadingAnimation()]));
+    return Scaffold(key: _scaffoldKey, body: Stack(children: [_PageElements(), _loadingAnimation()]));
   }
 
   Widget _loadingAnimation() {
@@ -49,20 +48,13 @@ class _LandingPageState extends State<LandingPage> {
                 child: Text(
                   'Social Media',
                   style: GoogleFonts.lobsterTwo(
-                    textStyle: const TextStyle(
-                        color: Colors.black,
-                        letterSpacing: .5,
-                        fontSize: 40,
-                        fontStyle: FontStyle.italic),
+                    textStyle: const TextStyle(color: Colors.black, letterSpacing: .5, fontSize: 40, fontStyle: FontStyle.italic),
                   ),
                 ),
               ),
               const SizedBox(height: 80),
               Container(
-                decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(3),
-                    border: Border.all(color: Colors.grey)),
+                decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(3), border: Border.all(color: Colors.grey)),
                 child: TextFormField(
                   autocorrect: true,
                   keyboardType: TextInputType.emailAddress,
@@ -92,10 +84,7 @@ class _LandingPageState extends State<LandingPage> {
               ),
               const SizedBox(height: 40),
               Container(
-                decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(3),
-                    border: Border.all(color: Colors.grey)),
+                decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(3), border: Border.all(color: Colors.grey)),
                 child: TextFormField(
                   autocorrect: false,
                   obscureText: true,
@@ -114,7 +103,7 @@ class _LandingPageState extends State<LandingPage> {
                     if (value!.isEmpty) {
                       return "Password can not be empty";
                     } else if (value.length < 4) {
-                      return "Password must be at least 5 charactes";
+                      return "Password must be at least 5 characters";
                     }
                     return null;
                   },
@@ -138,13 +127,9 @@ class _LandingPageState extends State<LandingPage> {
                       },
                       child: const Text(
                         'Create Account',
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
                       ),
-                      style:
-                          ElevatedButton.styleFrom(primary: Colors.blue[500]),
+                      style: ElevatedButton.styleFrom(primary: Colors.blue[500]),
                     ),
                   ),
                   const SizedBox(
@@ -155,13 +140,9 @@ class _LandingPageState extends State<LandingPage> {
                       onPressed: _login,
                       child: const Text(
                         'Login',
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
                       ),
-                      style:
-                          ElevatedButton.styleFrom(primary: Colors.blue[800]),
+                      style: ElevatedButton.styleFrom(primary: Colors.blue[800]),
                     ),
                   )
                 ],
@@ -182,18 +163,23 @@ class _LandingPageState extends State<LandingPage> {
                   },
                   child: Text(
                     'Login with Google',
-                    style: TextStyle(
-                        fontSize: 19,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey[600]),
+                    style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold, color: Colors.grey[600]),
                   ),
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              const Center(
-                child: Text('Forgot Password'),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ForgotPage()),
+                  );
+                },
+                child: const Center(
+                  child: Text('Forgot Password'),
+                ),
               ),
             ],
           ),
@@ -251,8 +237,7 @@ class _LandingPageState extends State<LandingPage> {
       if (user != null) {
         AppUsers? fireStoreUser = await FireStoreService().searchUser(user.id);
         if (fireStoreUser == null) {
-          FireStoreService().createUser(user.id, user.email, user.userName,
-              photoUrl: user.fotoUrl);
+          FireStoreService().createUser(user.id, user.email, user.userName, photoUrl: user.fotoUrl);
           print("User created");
         }
       }

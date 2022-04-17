@@ -14,22 +14,22 @@ class CreateAccountPage extends StatefulWidget {
 
 class _CreateAccountPageState extends State<CreateAccountPage> {
   final _formKey = GlobalKey<FormState>();
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   bool _loading = false;
   String? username, email, password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Create Account')),
+        appBar: AppBar(title: const Text('Create Account')),
         body: ListView(
           children: [
             _loading
-                ? LinearProgressIndicator(
+                ? const LinearProgressIndicator(
                     color: Colors.white,
                     backgroundColor: Colors.black,
                   )
-                : SizedBox(),
-            SizedBox(
+                : const SizedBox(),
+            const SizedBox(
               height: 20,
             ),
             Form(
@@ -39,10 +39,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   child: Column(
                     children: [
                       Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius: BorderRadius.circular(3),
-                            border: Border.all(color: Colors.grey)),
+                        decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(3), border: Border.all(color: Colors.grey)),
                         child: TextFormField(
                             autocorrect: true,
                             decoration: const InputDecoration(
@@ -61,8 +58,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return "Username can not be empty";
-                              } else if ((value.trim().length < 4) ||
-                                  (value.trim().length > 10)) {
+                              } else if ((value.trim().length < 4) || (value.trim().length > 10)) {
                                 return "Username should be between 5 and 10 characters";
                               }
                               return null;
@@ -71,10 +67,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       ),
                       const SizedBox(height: 40),
                       Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius: BorderRadius.circular(3),
-                            border: Border.all(color: Colors.grey)),
+                        decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(3), border: Border.all(color: Colors.grey)),
                         child: TextFormField(
                             keyboardType: TextInputType.emailAddress,
                             decoration: const InputDecoration(
@@ -102,10 +95,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       ),
                       const SizedBox(height: 40),
                       Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius: BorderRadius.circular(3),
-                            border: Border.all(color: Colors.grey)),
+                        decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(3), border: Border.all(color: Colors.grey)),
                         child: TextFormField(
                           autocorrect: false,
                           obscureText: true,
@@ -131,22 +121,18 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                           onSaved: (value) => password = value,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Container(
+                      SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: _createAccount,
                           child: const Text(
                             'Create Account',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
                           ),
-                          style: ElevatedButton.styleFrom(
-                              primary: Colors.blue[500]),
+                          style: ElevatedButton.styleFrom(primary: Colors.blue[500]),
                         ),
                       ),
                     ],
@@ -178,7 +164,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
         var errorMessage = _showError(errorCode: error.code);
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(errorMessage),
-          duration: Duration(seconds: 1),
+          duration: const Duration(seconds: 1),
         ));
       }
     }

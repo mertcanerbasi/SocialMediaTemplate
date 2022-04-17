@@ -6,14 +6,14 @@ import 'package:socialmediaapp/models/users.dart';
 
 class AuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  String? activeUserId;
 
   Stream<AppUsers?> get stateControl {
     return _firebaseAuth.authStateChanges().map(_createUser);
   }
-  
-    Future<AppUsers?> signupWithMail(String email, String password) async {
-    var result = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: email, password: password);
+
+  Future<AppUsers?> signupWithMail(String email, String password) async {
+    var result = await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
 
     return _createUser(result.user);
   }
@@ -22,10 +22,8 @@ class AuthService {
     return _firebaseAuth.signOut();
   }
 
-
   Future<AppUsers?> loginWithMail(String email, String password) async {
-    var result = await _firebaseAuth.signInWithEmailAndPassword(
-        email: email, password: password);
+    var result = await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
     return _createUser(result.user);
   }
 
@@ -33,18 +31,16 @@ class AuthService {
     return user == null ? null : AppUsers.fromFirebase(user);
   }
 
-
   Future<AppUsers?> loginWithGoogle() async {
-    GoogleSignInAccount? googleAccount =
-        await GoogleSignIn(scopes: ['profile', 'email']).signIn();
-    GoogleSignInAuthentication? googleAuthentication =
-        await googleAccount!.authentication;
-    AuthCredential? authCreds = GoogleAuthProvider.credential(
-        idToken: googleAuthentication.idToken,
-        accessToken: googleAuthentication.accessToken);
-    UserCredential userCreds =
-        await _firebaseAuth.signInWithCredential(authCreds);
+    GoogleSignInAccount? googleAccount = await GoogleSignIn(scopes: ['profile', 'email']).signIn();
+    GoogleSignInAuthentication? googleAuthentication = await googleAccount!.authentication;
+    AuthCredential? authCreds = GoogleAuthProvider.credential(idToken: googleAuthentication.idToken, accessToken: googleAuthentication.accessToken);
+    UserCredential userCreds = await _firebaseAuth.signInWithCredential(authCreds);
 
     return _createUser(userCreds.user);
+  }
+
+  Future<void> resetPassword(String? email) async {
+    await _firebaseAuth.sendPasswordResetEmail(email: "$email");
   }
 }

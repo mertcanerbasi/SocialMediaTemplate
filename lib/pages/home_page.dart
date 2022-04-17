@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 import 'package:socialmediaapp/pages/discover_page/discover_page.dart';
 import 'package:socialmediaapp/pages/flow_page/flow_page.dart';
 import 'package:socialmediaapp/pages/notifications_page/notifications_page.dart';
@@ -25,7 +26,15 @@ class _HomepageState extends State<Homepage> {
   }
 
   @override
+  void dispose() {
+    _pageController?.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    String? _activeUserId = Provider.of<AuthService>(context, listen: false).activeUserId;
+
     return Scaffold(
       body: PageView(
         controller: _pageController,
@@ -34,12 +43,14 @@ class _HomepageState extends State<Homepage> {
             _activePage = value;
           });
         },
-        children: const [
+        children: [
           FlowPage(),
           DiscoverPage(),
           UploadPage(),
           NotificationsPage(),
-          ProfilePage(),
+          ProfilePage(
+            profileOwnerId: _activeUserId,
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -55,6 +66,7 @@ class _HomepageState extends State<Homepage> {
         ],
         onTap: (value) {
           setState(() {
+            _activePage = value;
             _pageController?.jumpToPage(_activePage);
           });
         },

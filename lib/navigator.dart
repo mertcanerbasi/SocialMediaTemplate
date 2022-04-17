@@ -15,14 +15,14 @@ class Navigation extends StatelessWidget {
         stream: _authService.stateControl,
         builder: (context, snapshots) {
           if (snapshots.connectionState == ConnectionState.waiting) {
-            return Scaffold(body: const Center(child: CircularProgressIndicator()));
+            return const Scaffold(body: Center(child: CircularProgressIndicator()));
           }
           if (snapshots.hasData) {
             AppUsers activeUser = snapshots.data as AppUsers;
-            print(snapshots);
-            return Homepage();
+            _authService.activeUserId = activeUser.id;
+            return const Homepage();
           } else {
-            return LandingPage();
+            return const LandingPage();
           }
         });
   }
